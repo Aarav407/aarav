@@ -9,6 +9,11 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  // Health check so frontend knows cloud is online
+  if (req.method === "GET" && !req.query.action) {
+    return res.status(200).json({ status: "online" });
+  }
+
   try {
     let response;
     if (req.method === "GET") {
