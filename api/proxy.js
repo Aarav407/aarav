@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaaMWhLSo240jMtUw4V7gygOLmsJSHr6ZU9X4Y5zYg9e6LtWq1FJiO-U7VFU4vp4H-pA/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOf0t3wDkSKnM2Qy3Tnq2JEhwk0t0ywwMNhcX6NsYKkv5wXei77zTTJm7m_6LDfTGjIA/exec";
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -7,11 +7,6 @@ export default async function handler(req, res) {
 
   if (req.method === "OPTIONS") {
     return res.status(200).end();
-  }
-
-  // Health check so frontend knows cloud is online
-  if (req.method === "GET" && !req.query.action) {
-    return res.status(200).json({ status: "online" });
   }
 
   try {
